@@ -1,10 +1,11 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "frontend-project-brain-games-hexlet",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "frontend-project-lvl1": "brain-games.js"
+    "frontend-project-lvl1": "brain-games.js",
+    "brain-games": "bin/brain-games.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +20,8 @@
     "url": "https://github.com/TimurDavlet/frontend-project-lvl1/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/TimurDavlet/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/TimurDavlet/frontend-project-lvl1#readme",
+  "dependencies": {
+    "puppeteer": "^5.2.1"
+  }
 }
