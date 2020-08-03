@@ -13,6 +13,9 @@ brain-gcd:
 brain-numbers:
 	node bin/brain-numbers.js
 
+brain-pn:
+	node bin/brain-pn.js
+
 publish:
 	npm publish --dry-run
 
