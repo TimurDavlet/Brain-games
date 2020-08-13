@@ -9,7 +9,6 @@ export const start = (gameQuestion, arrayQuestion, arrayAnswer) => {
 
   for (let i = 0; i < 3; i += 1) {
     console.log(`Question: ${arrayQuestion[i]}`);
-    console.log(arrayAnswer[i]);
     const answer = readlineSync.question('Your answer: ');
     if (String(arrayAnswer[i]) === answer) {
       console.log('Correct!');
