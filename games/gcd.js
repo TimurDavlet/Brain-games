@@ -10,9 +10,8 @@ const nod = (a, b) => {
     if (a % result === 0 && b % result === 0) {
       return result;
     // eslint-disable-next-line no-else-return
-    } else {
-      result -= 1;
     }
+    result -= 1;
   }
   return result;
 };
