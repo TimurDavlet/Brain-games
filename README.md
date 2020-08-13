@@ -4,7 +4,7 @@
 
 [![Node CI](https://github.com/TimurDavlet/frontend-project-lvl1/workflows/CI/badge.svg)](https://github.com/TimurDavlet/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a291b23b274e84a1fa66/maintainability)](https://codeclimate.com/github/TimurDavlet/frontend-project-lvl1/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a291b23b274e84a1fa66/test_coverage)](https://codeclimate.com/github/TimurDavlet/frontend-project-lvl1/test_coverage)
+
 
 # asciinema 
 
