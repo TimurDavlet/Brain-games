@@ -1,10 +1,13 @@
 import * as games from '../src/index.js';
 
+const gameQuestion = 'What is the result of the expression?';
+
 const arrayOperand = ['+', '-', '*'];
 
-const getOperand = (array) => array[games.getRandom(3)];
+const arrayQuestion = [];
+const arrayAnswer = [];
 
-const random = (a, operand, b) => (`${a} ${operand} ${b}`);
+const getOperand = (array) => array[games.getRandom(3)];
 
 const resultRandom = (a, randomOperand, b) => {
   if (randomOperand === '+') {
@@ -15,27 +18,15 @@ const resultRandom = (a, randomOperand, b) => {
   return a * b;
 };
 
-// eslint-disable-next-line consistent-return
-const run = () => {
-  games.welcom();
-  const name = games.userName();
-  games.hello(name);
-  console.log('What is the result of the expression?');
-
+const calc = () => {
   for (let i = 0; i < 3; i += 1) {
-    const oneRandom = games.getRandom();
-    const twoRandom = games.getRandom();
-    const randomOperand = getOperand(arrayOperand);
-    games.question(random(oneRandom, randomOperand, twoRandom));
-    const answer = games.answer();
-    const result = String(resultRandom(oneRandom, randomOperand, twoRandom));
-    if (answer === result) {
-      games.correct();
-    } else {
-      return games.unCorrect(answer, result, name);
-    }
+    const operand = getOperand(arrayOperand);
+    const a = games.getRandom();
+    const b = games.getRandom();
+    arrayQuestion.push(`${a} ${operand} ${b}`);
+    arrayAnswer.push(resultRandom(a, operand, b));
   }
-  games.finish(name);
+  return games.start(gameQuestion, arrayQuestion, arrayAnswer);
 };
 
-export default run;
+export default calc;

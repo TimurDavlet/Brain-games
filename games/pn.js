@@ -1,5 +1,10 @@
 import * as games from '../src/index.js';
 
+const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const arrayQuestion = [];
+const arrayAnswer = [];
+
 const prime = (num) => {
   if (num < 1) {
     return 'no';
@@ -13,25 +18,13 @@ const prime = (num) => {
   return 'yes';
 };
 
-// eslint-disable-next-line consistent-return
-const run = () => {
-  games.welcom();
-  const name = games.userName();
-  games.hello(name);
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
+const pn = () => {
   for (let i = 0; i < 3; i += 1) {
-    const number = games.getRandom();
-    const result = prime(number);
-    games.question(`${number}`);
-    const answer = games.answer();
-    if (answer === result) {
-      games.correct();
-    } else {
-      return games.unCorrect(answer, result, name);
-    }
+    const randomNumber = games.getRandom();
+    arrayQuestion.push(randomNumber);
+    arrayAnswer.push(prime(randomNumber));
   }
-  games.finish(name);
+  return games.start(gameQuestion, arrayQuestion, arrayAnswer);
 };
 
-export default run;
+export default pn;

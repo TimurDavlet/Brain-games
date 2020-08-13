@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import run from '../games/numbers.js';
+import numbers from '../games/numbers.js';
 
-run();
+numbers();

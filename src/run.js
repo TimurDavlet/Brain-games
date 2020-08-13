@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import readlineSync from 'readline-sync';
 
 export const getRandomInt = (max = 100) => Math.floor(Math.random() * Math.floor(max));

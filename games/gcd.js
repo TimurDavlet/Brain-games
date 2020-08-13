@@ -1,4 +1,8 @@
+/* eslint-disable jest/no-disabled-tests */
+/* eslint-disable jest/expect-expect */
 import * as games from '../src/index.js';
+
+const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
 const nod = (a, b) => {
   let result = a >= b ? b : a;
@@ -13,26 +17,17 @@ const nod = (a, b) => {
   return result;
 };
 
-// eslint-disable-next-line consistent-return
-const run = () => {
-  games.welcom();
-  const name = games.userName();
-  games.hello(name);
-  console.log('Find the greatest common divisor of given numbers.');
+const arrayQuestion = [];
+const arrayAnswer = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    const oneRandom = games.getRandom();
-    const twoRandom = games.getRandom();
-    const resultNod = String(nod(oneRandom, twoRandom));
-    games.question(`${oneRandom} ${twoRandom}`);
-    const answer = games.answer();
-    if (answer === resultNod) {
-      games.correct();
-    } else {
-      return games.unCorrect(answer, resultNod, name);
-    }
+const gcd = () => {
+  for (let i = 0; i <= 3; i += 1) {
+    const a = games.getRandom();
+    const b = games.getRandom();
+    arrayQuestion.push(`${a} ${b}`);
+    arrayAnswer.push(nod(a, b));
   }
-  games.finish(name);
+  return games.start(gameQuestion, arrayQuestion, arrayAnswer);
 };
 
-export default run;
+export default gcd;

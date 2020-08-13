@@ -1,5 +1,10 @@
 import * as games from '../src/index.js';
 
+const gameQuestion = 'What number is missing in the progression?';
+
+const arrayQuestion = [];
+const arrayAnswer = [];
+
 const randomNumber = () => {
   let start = games.getRandom();
   const array = [];
@@ -11,33 +16,15 @@ const randomNumber = () => {
   return array;
 };
 
-const randomValueArray = (array, number) => {
-  // eslint-disable-next-line no-param-reassign
-  array[number] = '..';
-  return array;
-};
-
-// eslint-disable-next-line consistent-return
-const run = () => {
-  games.welcom();
-  const name = games.userName();
-  games.hello(name);
-  console.log('What number is missing in the progression?');
-
-  for (let i = 0; i < 3; i += 1) {
+const numbers = () => {
+  for (let j = 0; j < 3; j += 1) {
+    const array = randomNumber();
     const number = games.getRandom(10);
-    const newArray = randomNumber();
-    const result = String(newArray[number]);
-    const randomArray = randomValueArray(newArray, number);
-    games.question(`${randomArray}`);
-    const answer = games.answer();
-    if (answer === result) {
-      games.correct();
-    } else {
-      return games.unCorrect(answer, result, name);
-    }
+    arrayQuestion.push(array);
+    arrayAnswer.push(array[number]);
+    array[number] = '..';
   }
-  games.finish(name);
+  return games.start(gameQuestion, arrayQuestion, arrayAnswer);
 };
 
-export default run;
+export default numbers;
