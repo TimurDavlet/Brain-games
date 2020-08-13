@@ -22,8 +22,6 @@
   "type": "module",
   "homepage": "https://github.com/TimurDavlet/frontend-project-lvl1#readme",
   "dependencies": {
-    "@hexlet/pairs": "^1.0.15",
-    "puppeteer": "^5.2.1"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
