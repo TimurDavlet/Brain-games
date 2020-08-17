@@ -7,14 +7,14 @@ brain-even:
 brain-calc:
 	node bin/brain-calc.js
 
-brain-gcd:
-	node bin/brain-gcd.js
+brain-nod:
+	node bin/brain-nod.js
 
-brain-numbers:
-	node bin/brain-numbers.js
+brain-progression:
+	node bin/brain-progression.js
 
-brain-pn:
-	node bin/brain-pn.js
+brain-prime:
+	node bin/brain-prime.js
 
 publish:
 	npm publish --dry-run

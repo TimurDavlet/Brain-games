@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "frontend-project-lvl1": "bin/brain-calc",
-    "brain-calc": "bin/brain-calc"
+    "brain-calc": "bin/brain-calc",
+    "brain-even": "bin/brain-even",
+    "brain-nod": "bin/brain-nod",
+    "brain-prime": "bin/brain-prime",
+    "brain-progression": "bin/brain-progression"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
