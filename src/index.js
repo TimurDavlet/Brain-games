@@ -9,7 +9,6 @@ export const start = (gameQuestion, func) => {
 
   for (let i = 0; i < 3; i += 1) {
     const question = func();
-    console.log(question);
     const answer = readlineSync.question('Your answer: ');
     if (String(question) === answer) {
       console.log('Correct!');
