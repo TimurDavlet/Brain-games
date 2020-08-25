@@ -2,24 +2,24 @@
 import start from '../index.js';
 import { getRandom } from '../general/general-function.js';
 
-const gameQuestion = 'What is the result of the expression?';
+export const gameQuestion = 'What is the result of the expression?';
 
-const arrayOperand = ['+', '-', '*'];
+const list = ['+', '-', '*'];
 
-const getOperand = (array) => array[getRandom(3)];
+const getOperand = (list) => {
+  const head = list.pop();
+  return head;
+}
 
-const calc = () => {
+export const createPairQuestionAnswer = () => {
   const a = getRandom();
   const b = getRandom();
-  const randomOperand = getOperand(arrayOperand);
-  console.log(`Question: ${a} ${randomOperand} ${b}`);
-  if (randomOperand === '+') {
-    return a + b;
-  } if (randomOperand === '-') {
-    return a - b;
-  }
-  return a * b;
-};
+  const operand = getOperand(list);
 
-// eslint-disable-next-line import/prefer-default-export
-export const run = () => start(gameQuestion, calc);
+  if (operand === '+') {
+    return [`${a} + ${b}`, a + b];
+  } if (operand === '-') {
+    return [`${a} - ${b}`, a - b];
+  }
+  return [`${a} * ${b}`, a * b];
+};

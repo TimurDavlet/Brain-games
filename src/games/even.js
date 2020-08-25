@@ -2,7 +2,7 @@
 import start from '../index.js';
 import { getRandom } from '../general/general-function.js';
 
-const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => {
   if (num % 2 === 0) {
@@ -11,14 +11,11 @@ const isEven = (num) => {
   return false;
 };
 
-const even = () => {
+export const createPairQuestionAnswer = () => {
   const num = getRandom();
-  console.log(`Question: ${num}`);
+  
   if (isEven(num)) {
-    return 'yes';
+    return [num, 'yes'];
   }
-  return 'no';
+  return [num, 'no'];
 };
-
-// eslint-disable-next-line import/prefer-default-export
-export const run = () => start(gameQuestion, even);

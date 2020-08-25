@@ -8,8 +8,8 @@ export const start = (gameQuestion, func) => {
   console.log(gameQuestion);
 
   for (let i = 0; i < 3; i += 1) {
-    const pair = func();
-    const [question, result] = pair;
+    const list = func();
+    const [question, result] = list;
     console.log(question); 
     const answer = readlineSync.question('Your answer: ');
     if (String(result) === answer) {
@@ -18,8 +18,7 @@ export const start = (gameQuestion, func) => {
       return console.log(`${answer} is wrong answer ;(. Correct answer was ${result}. Let's try again, ${name}`);
     }
   }
-  console.log(`Congratulations, ${name}`)
-  return 'Game over';
+  return console.log(`Congratulations, ${name}`);
 };
 
 export default start;

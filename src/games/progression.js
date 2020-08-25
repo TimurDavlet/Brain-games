@@ -1,24 +1,24 @@
 // eslint-disable-next-line import/no-named-as-default
-import start from '../index.js';
 import { getRandom } from '../general/general-function.js';
 
-const gameQuestion = 'What number is missing in the progression?';
+export const gameQuestion = 'What number is missing in the progression?';
 
-const progression = () => {
+const createRandomList = () => {
   let startNumber = getRandom();
-  const array = [];
-  let num = 0;
-  const randomNumber = getRandom(10);
-  array.push(startNumber);
-  for (let i = 1; i < 10; i += 1) {
-    array.push(startNumber + 2);
-    startNumber += 2;
+  const diff = 2;
+  const list = [];
+  const maxLengsthList = 10;
+
+  for (let i = 1; i <= maxLengsthList; i += 1) {
+    list.push(startNumber + diff * i);
   }
-  num = array[randomNumber];
-  array[randomNumber] = '..';
-  console.log(`Question: ${array.join(' ')}`);
-  return num;
+  return list;
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const run = () => start(gameQuestion, progression);
+export const createPairQuestionAnswer = () => {
+  const progressionList = createRandomList();
+  const halfOfTheList = Math.floor(progressionList.length / 2);
+  const number = progressionList[halfOfTheList];
+  progressionList[halfOfTheList] = '..';
+  return [progressionList.join(' '), number];
+};
