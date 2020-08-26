@@ -1,15 +1,15 @@
 // eslint-disable-next-line import/no-named-as-default
-import start from '../index.js';
-import { getRandom } from '../general/general-function.js';
+import getRandom from '../general/general-function.js';
 
 export const gameQuestion = 'What is the result of the expression?';
 
 const list = ['+', '-', '*'];
 
+// eslint-disable-next-line no-shadow
 const getOperand = (list) => {
   const head = list.pop();
   return head;
-}
+};
 
 export const createPairQuestionAnswer = () => {
   const a = getRandom();

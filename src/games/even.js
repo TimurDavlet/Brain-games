@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-named-as-default
-import start from '../index.js';
-import { getRandom } from '../general/general-function.js';
+import getRandom from '../general/general-function.js';
 
 export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -13,7 +12,6 @@ const isEven = (num) => {
 
 export const createPairQuestionAnswer = () => {
   const num = getRandom();
-  
   if (isEven(num)) {
     return [num, 'yes'];
   }
