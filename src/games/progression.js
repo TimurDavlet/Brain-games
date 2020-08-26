@@ -22,3 +22,4 @@ export const createPairQuestionAnswer = () => {
   progressionList[halfOfTheList] = '..';
   return [progressionList.join(' '), number];
 };
+
