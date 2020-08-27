@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-named-as-default
-import getRandom from '../general/general-function.js';
+import { getRandom, run } from '../general/general-function.js';
 
 export const gameQuestion = 'What is the result of the expression?';
 
@@ -23,3 +23,5 @@ export const createPairQuestionAnswer = () => {
   }
   return [`${a} * ${b}`, a * b];
 };
+
+export default () => run(gameQuestion, createPairQuestionAnswer);

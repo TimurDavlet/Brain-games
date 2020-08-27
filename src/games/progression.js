@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-named-as-default
-import getRandom from '../general/general-function.js';
+import { getRandom, run } from '../general/general-function.js';
 
-export const gameQuestion = 'What number is missing in the progression?';
+const gameQuestion = 'What number is missing in the progression?';
 
 const createRandomList = () => {
   const startNumber = getRandom();
@@ -15,10 +15,12 @@ const createRandomList = () => {
   return list;
 };
 
-export const createPairQuestionAnswer = () => {
+const createPairQuestionAnswer = () => {
   const progressionList = createRandomList();
   const halfOfTheList = Math.floor(progressionList.length / 2);
   const number = progressionList[halfOfTheList];
   progressionList[halfOfTheList] = '..';
   return [progressionList.join(' '), number];
 };
+
+export default () => run(gameQuestion, createPairQuestionAnswer);

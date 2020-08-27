@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { gameQuestion, createPairQuestionAnswer } from '../src/games/prime.js';
-import start from '../src/index.js';
+import run from '../src/games/prime.js';
 
-start(gameQuestion, createPairQuestionAnswer);
+run();
