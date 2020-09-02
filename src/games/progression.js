@@ -29,10 +29,10 @@ const createQuestionAnswer = () => {
   const randomProgressionList = Math.floor(Math.random() * Math.ceil(progressionsListLength));
   const progressionList = progressionsList[randomProgressionList];
   const halfOfTheList = Math.floor(progressionList.length / 2);
-  const number = progressionList[halfOfTheList];
+  const hiddenNumber = progressionList[halfOfTheList];
   progressionList[halfOfTheList] = '..';
   const question = progressionList.join(' ');
-  const answer = String(number);
+  const answer = String(hiddenNumber);
 
   return [question, answer];
 };
