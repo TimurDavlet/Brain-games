@@ -1,5 +1,3 @@
-/* eslint-disable jest/no-disabled-tests */
-/* eslint-disable jest/expect-expect */
 // eslint-disable-next-line import/no-named-as-default
 import { getRandom, run } from '../general-function.js';
 
