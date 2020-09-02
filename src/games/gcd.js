@@ -1,9 +1,9 @@
 /* eslint-disable jest/no-disabled-tests */
 /* eslint-disable jest/expect-expect */
 // eslint-disable-next-line import/no-named-as-default
-import { getRandom, run } from '../general/general-function.js';
+import { getRandom, run } from '../general-function.js';
 
-export const gameQuestion = 'Find the greatest common divisor of given numbers.';
+const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
   let result = a >= b ? b : a;
@@ -17,11 +17,13 @@ const gcd = (a, b) => {
   return result;
 };
 
-export const createPairQuestionAnswer = () => {
+const createQuestionAnswer = () => {
   const a = getRandom();
   const b = getRandom();
-  const result = gcd(a, b);
-  return [`${a} ${b}`, result];
+  const question = `${a} ${b}`;
+  const answer = String(gcd(a, b));
+
+  return [question, answer];
 };
 
-export default () => run(gameQuestion, createPairQuestionAnswer);
+export default () => run(gameQuestion, createQuestionAnswer);

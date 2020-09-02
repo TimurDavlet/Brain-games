@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-named-as-default
-import { getRandom, run } from '../general/general-function.js';
+import { getRandom, run } from '../general-function.js';
 
-export const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  const maximumDivisor = num / 2;
+  const maximumDivisor = Math.floor(num / 2);
   if (num < 1) {
     return false;
   }
@@ -16,13 +16,19 @@ const isPrime = (num) => {
   return true;
 };
 
-export const createPairQuestionAnswer = () => {
-  const num = getRandom();
-
+const getAnswers = (num) => {
   if (isPrime(num)) {
-    return [num, 'yes'];
+    return 'yes';
   }
-  return [num, 'no'];
+  return 'no';
 };
 
-export default () => run(gameQuestion, createPairQuestionAnswer);
+const createQuestionAnswer = () => {
+  const num = getRandom();
+  const question = num;
+  const answer = String(getAnswers(num));
+
+  return [question, answer];
+};
+
+export default () => run(gameQuestion, createQuestionAnswer);

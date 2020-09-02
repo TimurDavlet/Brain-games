@@ -1,27 +1,35 @@
 // eslint-disable-next-line import/no-named-as-default
-import { getRandom, run } from '../general/general-function.js';
+import { getRandom, run } from '../general-function.js';
 
-export const gameQuestion = 'What is the result of the expression?';
+const gameQuestion = 'What is the result of the expression?';
 
-const list = ['+', '-', '*'];
+const operations = ['+', '-', '*'];
 
 // eslint-disable-next-line no-shadow
-const getOperand = (list) => {
-  const head = list.pop();
-  return head;
+const getValue = (list) => {
+  const maxNumberOfParameters = list.length - 1;
+  const result = Math.ceil(Math.random() * Math.ceil(maxNumberOfParameters));
+
+  return list[result];
 };
 
-export const createPairQuestionAnswer = () => {
+const getAnswers = (a, b, value) => {
+  if (value === '+') {
+    return a + b;
+  } if (value === '-') {
+    return a - b;
+  }
+  return a * b;
+};
+
+const createQuestionAnswer = () => {
   const a = getRandom();
   const b = getRandom();
-  const operand = getOperand(list);
+  const operation = getValue(operations);
+  const question = `${a} ${operation} ${b}`;
+  const answer = String(getAnswers(a, b, operation));
 
-  if (operand === '+') {
-    return [`${a} + ${b}`, a + b];
-  } if (operand === '-') {
-    return [`${a} - ${b}`, a - b];
-  }
-  return [`${a} * ${b}`, a * b];
+  return [question, answer];
 };
 
-export default () => run(gameQuestion, createPairQuestionAnswer);
+export default () => run(gameQuestion, createQuestionAnswer);
