@@ -1,35 +1,37 @@
-// eslint-disable-next-line import/no-named-as-default
-import { getRandom, run } from '../general-function.js';
+import randomInteger from '../general-function.js';
+import startTheGame from '../index.js';
 
-const gameQuestion = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
 // eslint-disable-next-line no-shadow
-const getValue = (list) => {
-  const maxNumberOfParameters = list.length - 1;
-  const result = Math.ceil(Math.random() * Math.ceil(maxNumberOfParameters));
+const getOperation = (operations) => {
+  const maxNumberOfParameters = operations.length - 1;
+  const result = randomInteger(1, maxNumberOfParameters);
 
-  return list[result];
+  return operations[result];
 };
 
-const getAnswers = (a, b, value) => {
-  if (value === '+') {
+// eslint-disable-next-line consistent-return
+const getAnswers = (a, b, operation) => {
+  if (operation === '+') {
     return a + b;
-  } if (value === '-') {
+  } if (operation === '-') {
     return a - b;
+  } if (operation === '*') {
+    return a * b;
   }
-  return a * b;
 };
 
 const createQuestionAnswer = () => {
-  const a = getRandom();
-  const b = getRandom();
-  const operation = getValue(operations);
+  const a = randomInteger();
+  const b = randomInteger();
+  const operation = getOperation(operations);
   const question = `${a} ${operation} ${b}`;
   const answer = String(getAnswers(a, b, operation));
 
   return [question, answer];
 };
 
-export default () => run(gameQuestion, createQuestionAnswer);
+export default () => startTheGame(description, createQuestionAnswer);

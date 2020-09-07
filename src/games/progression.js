@@ -1,40 +1,33 @@
-// eslint-disable-next-line import/no-named-as-default
-import { run } from '../general-function.js';
+import randomInteger from '../general-function.js';
+import startTheGame from '../index.js';
 
-const gameQuestion = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
-const createProgressions = () => {
-  const startNumbers = [135, 230, 311, 111, 215, 400, 5, 17, 10, 521, 99];
+const number = () => randomInteger();
+
+const createProgression = (num) => {
+  const startNumber = num;
   const diff = 2;
-  const listProgressions = [];
-  const maxLengsthList = 10;
-  const maxLengthListProgressions = startNumbers.length;
+  const progression = [];
+  const maxProgressionLength = 10;
 
-  for (let j = 0; j < maxLengthListProgressions; j += 1) {
-    const listProgression = [];
-
-    for (let i = 1; i <= maxLengsthList; i += 1) {
-      listProgression.push(startNumbers[j] + diff * i);
-    }
-
-    listProgressions.push(listProgression);
+  for (let i = 0; i < maxProgressionLength; i += 1) {
+    progression.push(startNumber + diff * i);
   }
 
-  return listProgressions;
+  return progression;
 };
 
 const createQuestionAnswer = () => {
-  const progressionsList = createProgressions();
-  const progressionsListLength = progressionsList.length - 1;
-  const randomProgressionList = Math.floor(Math.random() * Math.ceil(progressionsListLength));
-  const progressionList = progressionsList[randomProgressionList];
-  const halfOfTheList = Math.floor(progressionList.length / 2);
-  const hiddenNumber = progressionList[halfOfTheList];
-  progressionList[halfOfTheList] = '..';
-  const question = progressionList.join(' ');
+  const progression = createProgression(number());
+  const progressionLength = progression.length;
+  const halfOfTheProgression = Math.floor(progressionLength / 2);
+  const hiddenNumber = progression[halfOfTheProgression];
+  progression[halfOfTheProgression] = '..';
+  const question = progression.join(' ');
   const answer = String(hiddenNumber);
 
   return [question, answer];
 };
 
-export default () => run(gameQuestion, createQuestionAnswer);
+export default () => startTheGame(description, createQuestionAnswer);

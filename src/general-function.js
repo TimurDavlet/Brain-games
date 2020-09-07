@@ -1,8 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
+const randomInteger = (min = 1, max = 100) => {
+  const rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+};
 
-import startTheGame from './index.js';
-
-// eslint-disable-next-line no-undef
-export const getRandom = () => Math.ceil(Math.random() * Math.ceil(100));
-
-export const run = (a, b) => startTheGame(a, b);
+export default randomInteger;
