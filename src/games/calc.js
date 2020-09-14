@@ -1,27 +1,33 @@
-import randomInteger from '../general-function.js';
-import startTheGame from '../index.js';
+import randomInteger from '../random-number-generator.js';
+import playGame from '../index.js';
 
 const description = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
-// eslint-disable-next-line no-shadow
-const getOperation = (operations) => {
-  const maxNumberOfParameters = operations.length - 1;
+const getOperation = (operation) => {
+  const maxNumberOfParameters = operation.length - 1;
   const result = randomInteger(1, maxNumberOfParameters);
 
-  return operations[result];
+  return operation[result];
 };
 
-// eslint-disable-next-line consistent-return
 const getAnswers = (a, b, operation) => {
-  if (operation === '+') {
-    return a + b;
-  } if (operation === '-') {
-    return a - b;
-  } if (operation === '*') {
-    return a * b;
+  let result = null;
+  switch (operation) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    default:
+      return result;
   }
+  return result;
 };
 
 const createQuestionAnswer = () => {
@@ -34,4 +40,4 @@ const createQuestionAnswer = () => {
   return [question, answer];
 };
 
-export default () => startTheGame(description, createQuestionAnswer);
+export default () => playGame(description, createQuestionAnswer);

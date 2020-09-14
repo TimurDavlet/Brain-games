@@ -1,5 +1,5 @@
-import randomInteger from '../general-function.js';
-import startTheGame from '../index.js';
+import randomInteger from '../random-number-generator.js';
+import playGame from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -12,4 +12,4 @@ const createQuestionAnswer = () => {
   return [question, answer];
 };
 
-export default () => startTheGame(description, createQuestionAnswer);
+export default () => playGame(description, createQuestionAnswer);

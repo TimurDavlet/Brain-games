@@ -1,33 +1,30 @@
-import randomInteger from '../general-function.js';
-import startTheGame from '../index.js';
+import randomInteger from '../random-number-generator.js';
+import playGame from '../index.js';
 
 const description = 'What number is missing in the progression?';
 
-const number = () => randomInteger();
+const startNumber = () => randomInteger();
+const diff = 2;
+const progressionLength = 10;
 
-const createProgression = (num) => {
-  const startNumber = num;
-  const diff = 2;
+const createProgression = (randomNumber, progressionStep, maxProgressionLength) => {
   const progression = [];
-  const maxProgressionLength = 10;
 
   for (let i = 0; i < maxProgressionLength; i += 1) {
-    progression.push(startNumber + diff * i);
+    progression.push(randomNumber + progressionStep * i);
   }
 
   return progression;
 };
 
 const createQuestionAnswer = () => {
-  const progression = createProgression(number());
-  const progressionLength = progression.length;
-  const halfOfTheProgression = Math.floor(progressionLength / 2);
-  const hiddenNumber = progression[halfOfTheProgression];
-  progression[halfOfTheProgression] = '..';
+  const progression = createProgression(startNumber(), diff, progressionLength);
+  const hiddenIndex = randomInteger(0, 9);
+  const answer = String(progression[hiddenIndex]);
+  progression[hiddenIndex] = '..';
   const question = progression.join(' ');
-  const answer = String(hiddenNumber);
 
   return [question, answer];
 };
 
-export default () => startTheGame(description, createQuestionAnswer);
+export default () => playGame(description, createQuestionAnswer);
