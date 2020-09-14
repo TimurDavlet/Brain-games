@@ -40,9 +40,9 @@ $ make install
 
 Play:
 ```sh
-$ brain-calc
-$ brain-even
-$ brain-gcd
-$ brain-prime
-$ brain-progression
+$ make brain-calc
+$ make brain-even
+$ make brain-gcd
+$ make brain-prime
+$ make brain-progression
 ```
