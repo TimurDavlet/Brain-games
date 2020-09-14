@@ -4,12 +4,12 @@ import playGame from '../index.js';
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  if (num < 1) {
+  if (num <= 1) {
     return false;
   }
   const maximumDivisor = Math.floor(num / 2);
 
-  for (let i = 2; i < maximumDivisor; i += 1) {
+  for (let i = 2; i <= maximumDivisor; i += 1) {
     if (num % i === 0) {
       return false;
     }
