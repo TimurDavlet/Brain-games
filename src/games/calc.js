@@ -7,13 +7,13 @@ const operations = ['+', '-', '*'];
 
 const getOperation = (operation) => {
   const maxNumberOfParameters = operation.length - 1;
-  const result = randomInteger(1, maxNumberOfParameters);
+  const index = randomInteger(0, maxNumberOfParameters);
 
-  return operation[result];
+  return operation[index];
 };
 
-const getAnswers = (a, b, operation) => {
-  let result = null;
+const calculate = (a, b, operation) => {
+  let result;
   switch (operation) {
     case '+':
       result = a + b;
@@ -35,7 +35,7 @@ const createQuestionAnswer = () => {
   const b = randomInteger();
   const operation = getOperation(operations);
   const question = `${a} ${operation} ${b}`;
-  const answer = String(getAnswers(a, b, operation));
+  const answer = String(calculate(a, b, operation));
 
   return [question, answer];
 };

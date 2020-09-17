@@ -3,10 +3,6 @@ import playGame from '../index.js';
 
 const description = 'What number is missing in the progression?';
 
-const startNumber = () => randomInteger();
-const diff = 2;
-const progressionLength = 10;
-
 const createProgression = (randomNumber, progressionStep, maxProgressionLength) => {
   const progression = [];
 
@@ -18,8 +14,11 @@ const createProgression = (randomNumber, progressionStep, maxProgressionLength) 
 };
 
 const createQuestionAnswer = () => {
-  const progression = createProgression(startNumber(), diff, progressionLength);
-  const hiddenIndex = randomInteger(0, 9);
+  const startNumber = randomInteger();
+  const diff = 2;
+  const progressionLength = 10;
+  const progression = createProgression(startNumber, diff, progressionLength);
+  const hiddenIndex = randomInteger(0, progressionLength);
   const answer = String(progression[hiddenIndex]);
   progression[hiddenIndex] = '..';
   const question = progression.join(' ');
